@@ -1,12 +1,12 @@
-
 import './App.css'
+import Title from './components/Title'
+import '@picocss/pico'
 
 function App() {
 
   return (
     <div>
-      <h1>Hello World!</h1>
-      <h2>Pediodic Table Game</h2>
+      <Title/>
     </div>
   )
 }
