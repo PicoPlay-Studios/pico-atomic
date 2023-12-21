@@ -1,6 +1,6 @@
 function Title() {
     return(
-        <div><h1>Periodic Table Quiz</h1></div>
+        <div class="container-fluid"><h1 class="container-fluid">Periodic Table Quiz</h1></div>
     )
 }
 
