@@ -1,15 +1,22 @@
 import { useEffect, useRef, useState } from 'react'
 export default function(){
 
-	const [userInput, setUserInput] = useState("");
+	const [userInput, setUserInput] = useState('');
 
 	useEffect(() => {
 
 
 		function handleInput(e){
+			if(e.key == 'Backspace'){
 
-			setUserInput(userInput.concat(e.target.value));
-			console.log('key pressed');
+			let s = userInput;
+			setUserInput(userInput => userInput.substring(0,s.length));
+				return;
+			}
+
+			setUserInput(userInput => userInput + e.key);
+			console.log(userInput);
+				
 		};
 		window.addEventListener('keydown', handleInput);
 
@@ -21,9 +28,9 @@ export default function(){
 	},[]);
 
 	return( 
-		<div>
+		<h3>
 		{userInput}
-		</div>
+		</h3>
 	)
 
 }
