@@ -3,6 +3,7 @@ import './App.css'
 import Title from './components/Title'
 import Element from './components/Element'
 import '@picocss/pico'
+import Keyboard from './components/Keyboard'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
 		<div className="margin-top" align="center">
 		<Title/>
 		<Element/>
+		<Keyboard/>
 		</div>
 	)
 }
