@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-export default function(){
+import { useEffect, useState } from 'react'
+export default function Keyboard(){
 
 	const [userInput, setUserInput] = useState("");
 
@@ -10,7 +10,7 @@ export default function(){
 
 			setUserInput(userInput.concat(e.target.value));
 			console.log('key pressed');
-		};
+		}
 		window.addEventListener('keydown', handleInput);
 
 
