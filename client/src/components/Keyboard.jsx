@@ -8,22 +8,20 @@ export default function Keyboard(){
 			if(e.key == 'Backspace'){
 
 			let s = userInput;
-			setUserInput(userInput => userInput.substring(0,s.length));
+			setUserInput(userInput => userInput.substring(0,s.length-1));
 				return;
 			}
 
 			setUserInput(userInput => userInput + e.key);
 			console.log(userInput);
-				
-		};
+		}
 		window.addEventListener('keydown', handleInput);
 
 
 		return () => {
-
 			window.removeEventListener('keydown', handleInput);
 		}
-	},[]);
+	},[userInput]);
 
 	return( 
 		<h3>
