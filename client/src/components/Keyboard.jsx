@@ -3,13 +3,25 @@ export default function(){
 
 	const [userInput, setUserInput] = useState("");
 
-	function handleInput(e){
+	useEffect(() => {
 
-		setUserInput(userInput.concat(e.target.value));
-		console.log('key pressed');
-	};
+
+		function handleInput(e){
+
+			setUserInput(userInput.concat(e.target.value));
+			console.log('key pressed');
+		};
+		window.addEventListener('keydown', handleInput);
+
+
+		return () => {
+
+			window.removeEventListener('keydown', handleInput);
+		}
+	},[]);
+
 	return( 
-		<div onKeyDown={handleInput} tabIndex="0">
+		<div>
 		{userInput}
 		</div>
 	)
