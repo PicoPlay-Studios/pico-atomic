@@ -2,8 +2,8 @@
 import './App.css'
 import Title from './components/Title'
 import Element from './components/Element'
-import '@picocss/pico'
 import Keyboard from './components/Keyboard'
+import '@picocss/pico'
 
 function App() {
 

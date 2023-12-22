@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
-export default function(){
+import { useEffect, useState } from 'react'
+export default function Keyboard(){
 
 	const [userInput, setUserInput] = useState('');
 
 	useEffect(() => {
-
-
 		function handleInput(e){
 			if(e.key == 'Backspace'){
 
