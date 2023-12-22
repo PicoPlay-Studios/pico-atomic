@@ -4,11 +4,8 @@ export default function Keyboard(){
 	const [userInput, setUserInput] = useState("");
 
 	useEffect(() => {
-
-
 		function handleInput(e){
-
-			setUserInput(userInput.concat(e.target.value));
+			setUserInput(userInput => userInput + e.key)
 			console.log('key pressed');
 		}
 		window.addEventListener('keydown', handleInput);
@@ -21,9 +18,9 @@ export default function Keyboard(){
 	},[]);
 
 	return( 
-		<div>
+		<h3>
 		{userInput}
-		</div>
+		</h3>
 	)
 
 }
