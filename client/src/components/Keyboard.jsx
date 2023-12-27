@@ -12,6 +12,10 @@ export default function Keyboard(){
 				return;
 			}
 
+            if(e.key.length > 1){
+                return
+            }
+
 			setUserInput(userInput => userInput + e.key);
 			console.log(userInput);
 		}
