@@ -1,8 +1,8 @@
 
-function Element() {
-	let rNum = Math.floor(Math.random() * 120);
+function Element(props) {
     return(
-        <div className="container-fluid"><h2 className="container-fluid">{rNum}</h2></div>
+
+        <h2 className="container-fluid">{props.element}</h2>
     )
 }
 
