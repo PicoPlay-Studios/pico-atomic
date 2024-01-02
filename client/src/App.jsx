@@ -9,7 +9,8 @@ import { useEffect, useState } from 'react'
 // const rNum = Math.floor(Math.random() * 120);
 // made it into a function
 // will rework this later so the character matches the number
-const generateRandomElement = () => Math.floor(Math.random() * 120)
+// This generates number between 0+1 and 117+1
+const generateRandomElement = () => Math.floor(Math.random() * 118) + 1
 function App() {
 
     const [userInput, setUserInput] = useState('');
