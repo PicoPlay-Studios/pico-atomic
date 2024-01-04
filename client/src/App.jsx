@@ -12,6 +12,11 @@ function App() {
 
     const [inMenu, setInMenu] = useState(true); 
 
+    //Temporary
+    const goBack = () =>{
+        setInMenu(true)
+    }
+
     if(inMenu){
         return(
             <div className='margin-top' align='center'>
@@ -21,8 +26,10 @@ function App() {
     }
 
     return (
+        //Temporary 
         <div className="margin-top" align="center">
-            game state
+            <h1>game state</h1>
+            <button onClick={goBack}>Back to Menu</button>
         </div>
     )
 }

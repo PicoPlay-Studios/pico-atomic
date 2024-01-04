@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import Title from './Title'
 import SubTitle from './SubTitle'
@@ -8,7 +9,7 @@ function Button({handleClick, text="undefine"}){
     return(
 
         <button onClick = { () => {
-            handleClick(true)
+            handleClick(false)
         }}>
         {text}
         </button>
