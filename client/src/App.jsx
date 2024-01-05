@@ -26,10 +26,8 @@ function App() {
     }
 
     return (
-        //Temporary 
-        <div className="margin-top" align="center">
-            <h1>game state</h1>
-            <button onClick={goBack}>Back to Menu</button>
+        <div className='margin-top' align='center'>
+            <Game />
         </div>
     )
 }

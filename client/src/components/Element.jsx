@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
-function Element(props) {
+function Element({element}) {
     return(
-
-        <h2 className="container-fluid">{props.element}</h2>
+        <div>
+            <h3>{element.symbol}</h3>
+            <h3>{element.number}</h3>
+        </div>
     )
 }
 
