@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable no-unused-vars */
 import './App.css'
 import '@picocss/pico'
 import { useState } from 'react'
@@ -27,9 +29,9 @@ function App() {
     return (
         <div className='margin-top' align='center'>
             {inMenu ? (
-                <Menu leave={leaveMenu} setGame={setGameMode}/>
+                <Menu leave={leaveMenu} setGame={setGameMode} handleMenuClick={handleMenuClick}/>
             ) : (
-                <Game leave = {leaveGame} gameMode = {gameMode}/>
+                <Game leave = {leaveGame} gameMode = {gameMode} subTitleContent={subTitleContent}/>
             )}
         </div>
     )

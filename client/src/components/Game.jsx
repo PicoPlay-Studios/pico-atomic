@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { useEffect, useState } from "react";
@@ -67,7 +69,7 @@ function LeaveGame({leave}){
 
 }
 
-export default function Game({leave, gameMode}){
+export default function Game({leave, gameMode, subTitleContent}){
 
     const [userInput, setUserInput] = useState('')
     const [currentElement, setCurrentElement] = useState(MakeElement())
@@ -113,7 +115,7 @@ useEffect(() => {
 
 return (
     <div className='margin-top' align='center'>
-        <SubTitle content={"Guess something"}/>
+        <SubTitle content={subTitleContent}/>
         <SubTitle content={`Current Score: ${score}`}/>
         <Element element={currentElement} gameMode = {gameMode}/>
         <SubTitle content={userInput==''? '-----' : userInput}/>
