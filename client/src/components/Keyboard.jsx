@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react'
-export default function Keyboard(props){
+export default function Keyboard({Input}){
 	return( 
 		<h3>
-        {props.userInput}
+        {Input}
 		</h3>
 	)
 

@@ -44,29 +44,56 @@ const elementSymbol = [
     "Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt"
 ]
 
-function MakeElement(index){
-    index = index*1
+function MakeElement(){
+    var index = Math.floor(Math.random() * 109)
 
     return (
         {name: elementName[index],symbol: elementSymbol[index], number: index + 1}
     )
 }
+function checkInput(element, input){
+
+
+
+}
 
 export default function Game(){
-    const generateRandomElement = () => Math.floor(Math.random() * 118)
 
     const [userInput, setUserInput] = useState('')
-    const [currentIndex, setCurrentIndex] = useState(generateRandomElement())
+    const [currentElement, setCurrentElement] = useState(MakeElement())
 
-    useEffect(() =>{
-          console.log(MakeElement(generateRandomElement()))          
-    })
+useEffect(() => {
+        function handleInput(e){
+
+            //handle delete
+            if(e.key == 'Backspace'){
+                setUserInput((prevInput) => prevInput.slice(0,-1));
+                return;
+            }
+            //ignore inputs that are not keys 
+            if(e.key.length > 1){
+                return;
+            }
+            //max length 14
+            if(userInput.length > 13){
+                return;
+            }
+			const newUserInput = userInput + e.key
+            setUserInput(newUserInput);
+        }
+        window.addEventListener('keydown', handleInput);
+
+
+        return () => {
+            window.removeEventListener('keydown', handleInput);
+        }
+    },[userInput]);
 
 return (
     <div>
-        <h2>Game Here!</h2>
         <SubTitle content={"Guess the Element"}/>
-        <Element element={MakeElement(generateRandomElement())}/>
+        <Element element={currentElement}/>
+        <SubTitle content={userInput}/>
     </div>
 )
 

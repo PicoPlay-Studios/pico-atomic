@@ -4,7 +4,7 @@ import Title from './Title'
 import SubTitle from './SubTitle'
 
 
-function Button({handleClick, text="undefine"}){
+function Button({handleClick, setGameMode, text="undefine"}){
 
     return(
 
@@ -25,7 +25,9 @@ function Menu({cbFunc}){
         <>
         <Title/>
         <SubTitle content = {"Menu"}/>
-        <Button handleClick= {cbFunc} text="Play"/>
+        <Button handleClick= {cbFunc} text="Guess The Name"/>
+        <Button handleClick= {cbFunc} text="Guess The Number"/>
+        <Button handleClick= {cbFunc} text="Guess The Symbol"/>
         </>
 
     )
