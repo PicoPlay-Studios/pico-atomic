@@ -9,7 +9,7 @@ function Button({handleClick, setGameMode, text="undefine"}){
     return(
 
         <button onClick = { () => {
-            handleClick(false)
+            handleClick(text)
         }}>
         {text}
         </button>

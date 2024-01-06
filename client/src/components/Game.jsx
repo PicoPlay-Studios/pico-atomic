@@ -57,7 +57,7 @@ function checkInput(element, input){
 
 }
 
-export default function Game(){
+export default function Game({subTitleContent}){
 
     const [userInput, setUserInput] = useState('')
     const [currentElement, setCurrentElement] = useState(MakeElement())
@@ -91,7 +91,7 @@ useEffect(() => {
 
 return (
     <div>
-        <SubTitle content={"Guess the Element"}/>
+        <SubTitle content={subTitleContent}/>
         <Element element={currentElement}/>
         <SubTitle content={userInput}/>
     </div>

@@ -11,23 +11,20 @@ import  Menu  from './components/Menu'
 function App() {  
 
     const [inMenu, setInMenu] = useState(true); 
+    const [subTitleContent, setSubTitleContent] = useState("Menu");
 
-    //Temporary
-    const goBack = () =>{
-        setInMenu(true)
-    }
-
-    if(inMenu){
-        return(
-            <div className='margin-top' align='center'>
-                <Menu cbFunc= {setInMenu}/>
-            </div>
-        )
+    const handleMenuClick = (newContent) => {
+        setInMenu(false);
+        setSubTitleContent(newContent);
     }
 
     return (
         <div className='margin-top' align='center'>
-            <Game />
+            {inMenu ? (
+                <Menu cbFunc={handleMenuClick}/>
+            ) : (
+                <Game subTitleContent={subTitleContent}/>
+            )}
         </div>
     )
 }
