@@ -74,6 +74,8 @@ export default function Game({leave, gameMode, subTitleContent}){
     const [userInput, setUserInput] = useState('')
     const [currentElement, setCurrentElement] = useState(MakeElement())
     const [score, setScore] = useState(0)
+    const [errors, setErrors] = useState(0)
+
 
 useEffect(() => {
         function handleInput(e){
@@ -83,9 +85,20 @@ useEffect(() => {
                 if(checkInput(currentElement,  userInput,gameMode)){
                     setCurrentElement(MakeElement())
                     setScore(score + 1)
+                    setUserInput('')
+                    setErrors(0)
+                    return
                 }
                 setUserInput('')
+                setErrors(errors+1)
+                if(errors == 2){
+                    setScore(0)
+                    setErrors(0)
+                    setCurrentElement(MakeElement())
+
+                }
                 return
+
             }
         
 
@@ -116,7 +129,7 @@ useEffect(() => {
 return (
     <div className='margin-top' align='center'>
         <SubTitle content={subTitleContent}/>
-        <SubTitle content={`Current Score: ${score}`}/>
+        <SubTitle content={`Current Score: ${score} | Strikes: ${errors}`}/>
         <Element element={currentElement} gameMode = {gameMode}/>
         <SubTitle content={userInput==''? '-----' : userInput}/>
         <div className="margin-top">
