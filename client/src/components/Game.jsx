@@ -51,19 +51,35 @@ function MakeElement(){
         {name: elementName[index],symbol: elementSymbol[index], number: index + 1}
     )
 }
-function checkInput(element, input){
+function checkInput(element, input, gameMode){
+    if(gameMode == "number"){
+        return element[gameMode] == input*1
+    }
+    const elem = element[gameMode].toUpperCase();
+    const inp = input.toUpperCase();
 
-
-
+    return elem == inp;
 }
 
-export default function Game(){
+export default function Game({leave, gameMode}){
 
     const [userInput, setUserInput] = useState('')
     const [currentElement, setCurrentElement] = useState(MakeElement())
+    const [score, setScore] = useState(0)
 
 useEffect(() => {
         function handleInput(e){
+
+            if(e.key == 'Enter'){
+
+                if(checkInput(currentElement,  userInput,gameMode)){
+                    setCurrentElement(MakeElement())
+                    setScore(score + 1)
+                }
+                setUserInput('')
+                return
+            }
+        
 
             //handle delete
             if(e.key == 'Backspace'){
@@ -87,12 +103,13 @@ useEffect(() => {
         return () => {
             window.removeEventListener('keydown', handleInput);
         }
-    },[userInput]);
+    },[userInput,currentElement]);
 
 return (
-    <div>
+    <div className='margin-top' align='center'>
         <SubTitle content={"Guess the Element"}/>
-        <Element element={currentElement}/>
+        <SubTitle content={`Current Score: ${score}`}/>
+        <Element element={currentElement} gameMode = {gameMode}/>
         <SubTitle content={userInput}/>
     </div>
 )

@@ -4,12 +4,13 @@ import Title from './Title'
 import SubTitle from './SubTitle'
 
 
-function Button({handleClick, setGameMode, text="undefine"}){
+function GameSelectButton({leaveMenu, setGame, gameMode, text="undefine"}){
 
     return(
 
         <button onClick = { () => {
-            handleClick(false)
+            setGame(gameMode);
+            leaveMenu()
         }}>
         {text}
         </button>
@@ -17,7 +18,7 @@ function Button({handleClick, setGameMode, text="undefine"}){
     )
 
 }
-function Menu({cbFunc}){
+function Menu({leave, setGame}){
 
 
     return(
@@ -25,9 +26,11 @@ function Menu({cbFunc}){
         <>
         <Title/>
         <SubTitle content = {"Menu"}/>
-        <Button handleClick= {cbFunc} text="Guess The Name"/>
-        <Button handleClick= {cbFunc} text="Guess The Number"/>
-        <Button handleClick= {cbFunc} text="Guess The Symbol"/>
+        <div className='grid'>
+            <GameSelectButton leaveMenu = {leave} setGame={setGame} gameMode={"name"} text="Guess The Name"/>
+            <GameSelectButton leaveMenu = {leave} setGame={setGame} gameMode={"number"} text="Guess The Number"/>
+            <GameSelectButton leaveMenu = {leave} setGame={setGame} gameMode={"symbol"} text="Guess The Symbol"/>
+        </div>
         </>
 
     )
