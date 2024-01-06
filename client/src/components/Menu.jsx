@@ -5,16 +5,13 @@ import SubTitle from './SubTitle'
 
 
 function GameSelectButton({leaveMenu, setGame, gameMode, text="undefine"}){
-
     return(
-
         <button onClick = { () => {
             setGame(gameMode);
             leaveMenu()
         }}>
         {text}
         </button>
-
     )
 
 }

@@ -107,7 +107,7 @@ useEffect(() => {
 
 return (
     <div className='margin-top' align='center'>
-        <SubTitle content={"Guess the Element"}/>
+        <SubTitle content={"Guess something"}/>
         <SubTitle content={`Current Score: ${score}`}/>
         <Element element={currentElement} gameMode = {gameMode}/>
         <SubTitle content={userInput}/>

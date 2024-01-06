@@ -8,6 +8,7 @@ function App() {
 
     const [gameMode, setGameMode] = useState("name");
     const [inMenu, setInMenu] = useState(true); 
+    const [subTitleContent, setSubTitleContent] = useState("Menu");
 
     const leaveMenu = () => {
         setInMenu(false)
@@ -18,17 +19,18 @@ function App() {
     }
 
 
-    if(inMenu){
-        return(
-            <div className='margin-top' align='center'>
-                <Menu leave= {leaveMenu} setGame = {setGameMode}/>
-            </div>
-        )
+    const handleMenuClick = (newContent) => {
+        setInMenu(false);
+        setSubTitleContent(newContent);
     }
 
     return (
         <div className='margin-top' align='center'>
-            <Game leave = {leaveGame} gameMode = {gameMode}/>
+            {inMenu ? (
+                <Menu leave={leaveMenu} setGame={setGameMode}/>
+            ) : (
+                <Game leave = {leaveGame} gameMode = {gameMode}/>
+            )}
         </div>
     )
 }
