@@ -61,6 +61,12 @@ function checkInput(element, input, gameMode){
     return elem == inp;
 }
 
+function LeaveGame({leave}){
+
+    return(<button onClick={leave}> Quit </button>)
+
+}
+
 export default function Game({leave, gameMode}){
 
     const [userInput, setUserInput] = useState('')
@@ -110,7 +116,10 @@ return (
         <SubTitle content={"Guess something"}/>
         <SubTitle content={`Current Score: ${score}`}/>
         <Element element={currentElement} gameMode = {gameMode}/>
-        <SubTitle content={userInput}/>
+        <SubTitle content={userInput==''? '-----' : userInput}/>
+        <div className="margin-top">
+            <LeaveGame leave={leave}/>
+        </div>
     </div>
 )
 
