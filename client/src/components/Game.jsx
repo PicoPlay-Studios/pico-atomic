@@ -34,7 +34,9 @@ const elementName = [
     "Berkelium","Californium","Einsteinium","Fermium",
     "Mendelevium","Nobelium","Lawrencium","Rutherfordium",
     "Dubnium","Seaborgium","Bohrium","Hassium",
-    "Meitnerium"
+    "Meitnerium", "Darmstadtium", "Roentgenium", 
+    "Copernicium", "Nihonium", "Flerovium", "Moscovium", 
+    "Livermorium", "Tennessine", "Oganesson"
 ]
 
 const elementSymbol = [
@@ -44,11 +46,12 @@ const elementSymbol = [
     "Sn","Sb","Te","I","Xe","Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb",
     "Dy","Ho","Er","Tm","Yb","Lu","Hf","Ta","W","Re","Os","Ir","Pt","Au","Hg","Tl",
     "Pb","Bi","Po","At","Rn","Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk",
-    "Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt"
+    "Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt", "Ds", "Rg", "Cn",
+    "Nh", "Fl", "Mc", "Lv", "Ts", "Og"
 ]
 
 function MakeElement(){
-    var index = Math.floor(Math.random() * 109)
+    var index = Math.floor(Math.random() * 118)
 
     return (
         {name: elementName[index],symbol: elementSymbol[index], number: index + 1}
@@ -136,7 +139,9 @@ return (
         <SubTitle content={`Current Score: ${score} | Strikes: ${errors}`}/>
         <Element element={currentElement} gameMode = {gameMode}/>
         <SubTitle content={userInput==''? '-----' : userInput}/>
-        <Keyboard editInput={handleKeyPress}/> 
+        <div className="grid">
+        <Keyboard  editInput={handleKeyPress}/> 
+        </div>
         <div className="margin-top">
             <LeaveGame leave={leave}/>
         </div>
