@@ -2,7 +2,8 @@
    
     const buttonStyle = {
         with: 8 + "vw",
-        fontSize: 10 + "px",
+        fontSize: 12 + "px",
+        padding: 10 + "px",
         marginTop: 4 + "px",
         marginLeft: 1 + "px"
     }
