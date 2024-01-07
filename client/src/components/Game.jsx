@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import SubTitle from "./SubTitle";
 import Element from "./Element";
+import Keyboard from "./Keyboard";
 const elementName = [
     "Hydrogen","Helium","Lithium","Beryllium",
     "Boron","Carbon","Nitrogen","Oxygen",
@@ -75,12 +76,9 @@ export default function Game({leave, gameMode, subTitleContent}){
     const [currentElement, setCurrentElement] = useState(MakeElement())
     const [score, setScore] = useState(0)
     const [errors, setErrors] = useState(0)
+function handleKeyPress(key){
 
-
-useEffect(() => {
-        function handleInput(e){
-
-            if(e.key == 'Enter'){
+            if(key == 'Enter'){
 
                 if(checkInput(currentElement,  userInput,gameMode)){
                     setCurrentElement(MakeElement())
@@ -103,20 +101,26 @@ useEffect(() => {
         
 
             //handle delete
-            if(e.key == 'Backspace'){
+            if(key == 'Backspace'){
                 setUserInput((prevInput) => prevInput.slice(0,-1));
                 return;
             }
             //ignore inputs that are not keys 
-            if(e.key.length > 1){
+            if(key.length > 1){
                 return;
             }
             //max length 14
             if(userInput.length > 13){
                 return;
             }
-			const newUserInput = userInput + e.key
+			const newUserInput = userInput + key
             setUserInput(newUserInput);
+
+}
+
+useEffect(() => {
+        function handleInput(e){
+            handleKeyPress(e.key)
         }
         window.addEventListener('keydown', handleInput);
 
@@ -132,6 +136,7 @@ return (
         <SubTitle content={`Current Score: ${score} | Strikes: ${errors}`}/>
         <Element element={currentElement} gameMode = {gameMode}/>
         <SubTitle content={userInput==''? '-----' : userInput}/>
+        <Keyboard editInput={handleKeyPress}/> 
         <div className="margin-top">
             <LeaveGame leave={leave}/>
         </div>
