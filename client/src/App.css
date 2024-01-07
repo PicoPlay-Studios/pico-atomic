@@ -200,7 +200,7 @@
 
     .keys {
         align-items: center;
-        width: 6vw;
+        width: 8vw;
         height: auto;
         margin: 0 .2em .2em;
         padding: 0;
@@ -211,8 +211,8 @@
         align-items: center;
         text-transform: uppercase;
         align-items: center;
-        width: 12vw;
-        margin: 0 0 .2em;
+        width: 14vw;
+        margin: 0 .2em .2em;
     }
 }
 

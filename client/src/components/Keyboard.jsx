@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import BackspaceIcon from "../assets/backspace-svgrepo-com (1).svg"
-import EnterIcon from "../assets/enter-svgrepo-com (1).svg"
+import EnterIcon from "../assets/enter-svgrepo-com (2).svg"
 
 function Key({ k, editInput, action, style }) {
   const classNameStyle =
@@ -15,13 +15,19 @@ function Key({ k, editInput, action, style }) {
       style={style}
     >
       {k === "Backspace" ? (
-        <img style={{ width: "30px", height: "25px" }} src={BackspaceIcon} alt="Backspace" />
+        <img 
+          style={{ width: "30px", height: "25px" }} 
+          src={BackspaceIcon} 
+          alt="Backspace" />
       ) : k === "Enter" ? (
-        window.innerWidth < 497 ? (
-          <img style={{ width: "30px", height: "25px" }} src={EnterIcon} alt="Enter" />
-        ) : (
-          k
-        )
+          window.innerWidth < 497 ? (
+          <img 
+            style={{ width: "30px", height: "25px" }} 
+            src={EnterIcon} 
+            alt="Enter" />
+          ) : (
+            k
+          )
       ) : (
         k
       )}
