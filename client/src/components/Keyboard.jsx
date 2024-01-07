@@ -1,17 +1,22 @@
 /* eslint-disable react/prop-types */
    
-function Key({editInput, action}){
-
     const buttonStyle = {
-
-        fontSize: 11 + "px",
+        with: 8 + "vw",
+        fontSize: 10 + "px",
         marginTop: 4 + "px",
         marginLeft: 1 + "px"
     }
+    const bigButtonStyle = {
+        fontSize: 10 + "px",
+        marginTop: 4 + "px",
+        marginLeft: 1 + "px"
+    }
+function Key({editInput, action, singleKey=true}){
+
 
     return(
 
-        <a style={buttonStyle} href="#" role="button" onClick={
+        <a style={singleKey?buttonStyle:bigButtonStyle} href="#" role="button" onClick={
 
             ()=>editInput(action)
 
@@ -49,7 +54,7 @@ export default function Keyboard({editInput}){
             <KeyRow editInput={editInput} keys={keys2}/>
             <KeyRow editInput={editInput} keys={keys3}/>
             <br/>
-            <KeyRow editInput={editInput} keys={keys4}/>
+            <KeyRow editInput={editInput} keys={keys4} singleKey={false}/>
             <br/>
         </div>
 	)
